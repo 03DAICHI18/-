@@ -37,6 +37,28 @@ img {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI semibold", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic", "Segoe UI", Verdana, Meiryo, sans-serif;
   color: #fff;
   background-color: #000000;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.m-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220%;
+  background-color: #6e6e6f;
+  transform-origin: left bottom;
+  transform: skewY(-10deg) scale(1, 0);
+  transition: transform .6s;
+  z-index: -1;
+}
+
+.m-btn:hover::before {
+  transform-origin: left top;
+  transform: skewY(-10deg) scale(1, 1);
 }
 
 /* utility（便利スタイル） */
