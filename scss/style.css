@@ -1,0 +1,584 @@
+@charset "UTF-8";
+/* base */
+/* --------------------------------- */
+body {
+  line-height: 2em;
+  color: #333333;
+  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
+  font-feature-settings: "palt";
+}
+
+_:lang(x)::-ms-backdrop,
+body {
+  font-family: "Segoe UI", Meiryo, sans-serif;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* module（共通アイテム） */
+/* --------------------------------- */
+/* title */
+.m-ttl {
+  margin-bottom: 1.875rem;
+  font-size: 2rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI semibold", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic", "Segoe UI", Verdana, Meiryo, sans-serif;
+  font-weight: 900;
+}
+
+/* btn */
+.m-btn {
+  display: block;
+  padding: 0.625rem 3rem;
+  font-size: 0.75rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI semibold", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic", "Segoe UI", Verdana, Meiryo, sans-serif;
+  color: #fff;
+  background-color: #000000;
+}
+
+/* utility（便利スタイル） */
+/* --------------------------------- */
+.u-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1100px) {
+  .u-wrap {
+    padding: 0 1rem;
+  }
+}
+
+.u-txt--ec {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI semibold", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic", "Segoe UI", Verdana, Meiryo, sans-serif;
+  font-weight: bold;
+}
+
+.u-txt--jp {
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
+  font-weight: bold;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.875rem 3.75rem;
+}
+
+.header-inner__logo {
+  width: 16.25rem;
+  height: 1.875rem;
+  margin-top: -0.5rem;
+}
+
+@media screen and (max-width: 780px) {
+  .header-inner {
+    padding: 1.875rem 1.875rem;
+  }
+  __logo {
+    width: 11.875rem;
+    height: 1.3125rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-inner {
+    padding: 0.9375rem 0.625rem;
+  }
+  .header-inner__logo {
+    width: 9.375rem;
+    height: 0.9375rem;
+    margin-top: -0.9375rem;
+  }
+}
+
+/**************** 以下、ハンバーガーボタンのスタイリング ****************/
+.hamburger-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 5rem;
+  height: 1.875rem;
+  color: #fff;
+  z-index: 30;
+}
+
+.btn {
+  /* ボタンの大きさ  */
+  width: 2rem;
+  height: 1.25rem;
+  /* バーガーの線をボタン範囲の中心に配置 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 最前面に */
+  z-index: 10;
+}
+
+/***** 真ん中のバーガー線 *****/
+.btn-line {
+  /* 線の長さと高さ */
+  width: 100%;
+  height: 2px;
+  /* バーガー線の色 */
+  background-color: #fff;
+  /* バーガー線の位置基準として設定 */
+  position: relative;
+  transition: .2s;
+}
+
+/***** 上下のバーガー線 *****/
+.btn-line::before,
+.btn-line::after {
+  content: "";
+  /* 基準線と同じ大きさと色 */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transition: .5s;
+}
+
+.btn-line::before {
+  /* 上の線の位置 */
+  transform: translateY(-8px);
+}
+
+.btn-line::after {
+  /* 下の線の位置 */
+  transform: translateY(8px);
+}
+
+/***** メニューオープン時 *****/
+.btn-line.open {
+  /* 真ん中の線を透明に */
+  background-color: transparent;
+}
+
+.btn-line.open::before,
+.btn-line.open::after {
+  content: "";
+  /* 上下の線の色を変える */
+  background-color: #fff;
+  transition: .2s;
+}
+
+.btn-line.open::before {
+  /* 上の線を傾ける */
+  transform: rotate(45deg);
+}
+
+.btn-line.open::after {
+  /* 上の線を傾ける */
+  transform: rotate(-45deg);
+}
+
+/**************** 以下、メニューのスタイリング ****************/
+.menu {
+  position: fixed;
+  /* メニューの位置マイナス指定で画面外に */
+  right: -100%;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.34);
+  transition: .3s;
+  z-index: 20;
+}
+
+.menu .menu-inner {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(34, 34, 34, 0.95);
+}
+
+.menu .menu-inner .menu-inner__wrap {
+  width: 100%;
+  height: 23.125rem;
+  /* メニューを縦に */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-logo {
+  width: 2.6875rem;
+  height: 2.6875rem;
+}
+
+.menu-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.menu-list {
+  width: 100%;
+  height: 100%;
+  /* メニューテキスト位置をリスト内中心に */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI semibold", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic", "Segoe UI", Verdana, Meiryo, sans-serif;
+  font-weight: 900;
+}
+
+.menu-list:hover {
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: .3s;
+  cursor: pointer;
+}
+
+/***** メニューオープン時位置0にして画面内に *****/
+.menu.open {
+  position: absolute;
+  right: 0;
+}
+
+/**************** ここまで、メニューのスタイリング ****************/
+#header {
+  transition: .5s;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 7.5rem;
+}
+
+.hero__inner {
+  position: relative;
+  width: 70vw;
+  max-width: 68.75rem;
+  height: calc(100vh - 100px);
+  background-image: url(../img/kv-img@2x.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.hero__inner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.34);
+}
+
+@media screen and (max-width: 780px) {
+  .hero {
+    margin-bottom: 4.375rem;
+  }
+  .hero__inner {
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero__inner {
+    width: 80vw;
+  }
+}
+
+.hero__bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+  background-color: #222222;
+}
+
+.hero__bg .hero__txt-wrap {
+  color: #fff;
+  z-index: 3;
+}
+
+.hero__bg .hero__txt-wrap .hero__txt {
+  line-height: 1.5;
+  font-size: 1.25rem;
+}
+
+.hero__bg .hero__txt-wrap .hero__ttl {
+  line-height: calc(86 / 72);
+  font-size: 4.5rem;
+  font-weight: 900;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI semibold", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic", "Segoe UI", Verdana, Meiryo, sans-serif;
+}
+
+@media screen and (max-width: 780px) {
+  .hero__bg {
+    width: 70%;
+  }
+  .hero__bg .hero__txt-wrap .hero__txt {
+    font-size: 1rem;
+  }
+  .hero__bg .hero__txt-wrap .hero__ttl {
+    line-height: calc(86 / 53);
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero__bg {
+    width: 80%;
+    padding: 0 0.625rem;
+  }
+  .hero__bg .hero__txt-wrap .hero__txt {
+    font-size: 1rem;
+  }
+  .hero__bg .hero__txt-wrap .hero__ttl {
+    font-size: 2.5rem;
+  }
+}
+
+.about {
+  margin-bottom: 5rem;
+  padding: 6.875rem 3.125rem;
+  background-image: url(../img/about2x.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about .about-wrap {
+  width: 36.875rem;
+  padding: 3.125rem 1.875rem;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.about .about-wrap__ttl, .about .about-wrap__txt {
+  margin-bottom: 1.875rem;
+}
+
+@media screen and (max-width: 780px) {
+  .about {
+    padding: 3.75rem 5.5625rem;
+  }
+  .about .about-wrap {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about {
+    padding: 3.125rem 0.9375rem;
+  }
+  .about .about-wrap {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.content-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7.5rem;
+  position: relative;
+}
+
+.content-wrap::before {
+  content: "";
+  position: absolute;
+  top: -180px;
+  left: 0;
+  width: 100vw;
+  height: calc(100% + 240px);
+  margin: 0 calc(50% - 50vw);
+  background-color: #F0F0F0;
+  z-index: -1;
+}
+
+.content__img,
+.content__txt {
+  margin-bottom: 1.875rem;
+}
+
+.works {
+  margin-right: 3.75rem;
+}
+
+@media screen and (max-width: 780px) {
+  .content-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .works {
+    width: 32.5rem;
+    margin-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .works {
+    width: 100%;
+  }
+}
+
+.content__img {
+  position: relative;
+}
+
+.content__img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.34);
+  z-index: 2;
+}
+
+@media screen and (max-width: 780px) {
+  .culture {
+    width: 32.5rem;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .culture {
+    width: 100%;
+  }
+}
+
+.topics {
+  margin-bottom: 3.75rem;
+}
+
+.topics__wrap .topics__list {
+  width: 43.75rem;
+  margin-left: auto;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1.875rem;
+}
+
+.topics__wrap .m-btn {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 780px) {
+  .topics__wrap .topics__list {
+    margin-right: auto;
+    width: 100%;
+  }
+  .topics__wrap .m-btn {
+    margin: 0 auto 0 0;
+  }
+}
+
+.contact {
+  position: relative;
+}
+
+.contact__inner {
+  padding: 3.75rem 0 10.625rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact__inner .contact__txt-wrap {
+  width: 27.5rem;
+}
+
+.contact__inner .contact__txt-wrap .contact__txt {
+  margin-bottom: 1.875rem;
+}
+
+.contact__inner .contact__img {
+  position: relative;
+  width: 36.25rem;
+}
+
+.contact__inner .contact__img img {
+  width: 100%;
+}
+
+@media screen and (max-width: 780px) {
+  .contact__inner {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding-bottom: 5rem;
+  }
+  .contact__inner .contact__txt-wrap {
+    width: 100%;
+  }
+  .contact__inner .contact__img {
+    width: 32.5rem;
+    margin-bottom: 1.875rem;
+  }
+  .contact__inner .contact__img img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .contact__inner {
+    padding-bottom: 2.5rem;
+  }
+  .contact__inner .contact__img {
+    width: 100%;
+  }
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  margin: 0 calc(50% - 50vw);
+  background-color: #F0F0F0;
+  z-index: -1;
+}
+
+.contact__img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.34);
+  z-index: 2;
+}
+
+.footer {
+  height: 3.125rem;
+  line-height: 3.125rem;
+  text-align: center;
+  font-size: 0.625rem;
+  color: #fff;
+  background-color: #525252;
+}

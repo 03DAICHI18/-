@@ -1,0 +1,84 @@
+.contact {
+  position: relative;
+
+  &__inner {
+    padding: rem(60) 0 rem(170);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .contact__txt-wrap {
+      width: rem(440);
+
+      .contact__txt {
+        margin-bottom: rem(30);
+      }
+    }
+
+    .contact__img {
+      position: relative;
+      width: rem(580);
+
+      img {
+        width: 100%;
+      }
+    }
+
+
+  }
+}
+
+@include mq(tab) {
+  .contact__inner {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding-bottom: rem(80);
+
+    .contact__txt-wrap {
+      width: 100%;
+    }
+
+    .contact__img {
+      width: rem(520);
+      margin-bottom: rem(30);
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .contact__inner {
+    padding-bottom: rem(40);
+
+    .contact__img {
+      width: 100%;
+    }
+  }
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  margin: 0 calc(50% - 50vw);
+  background-color: $bg-color;
+  z-index: -1;
+}
+
+.contact__img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $mask-color;
+  z-index: 2;
+}

@@ -1,0 +1,42 @@
+.about {
+  margin-bottom: rem(80);
+  padding: rem(110) rem(50);
+  background-image: url(../img/about2x.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .about-wrap {
+    width: rem(590);
+    padding: rem(50) rem(30);
+    background-color: rgba($color: #fff, $alpha: .95);
+
+    &__ttl,
+    &__txt {
+      margin-bottom: rem(30);
+    }
+  }
+
+}
+
+@include mq(tab) {
+  .about {
+    padding: rem(60) rem(89);
+
+    .about-wrap {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@include mq(sp) {
+  .about {
+    padding: rem(50) rem(15);
+
+    .about-wrap {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

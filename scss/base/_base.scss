@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+/* base */
+/* --------------------------------- */
+body {
+  line-height: 2em;
+  color: $baseFont-color;
+  font-family: $fontFamily;
+  font-feature-settings: "palt";
+}
+
+_:lang(x)::-ms-backdrop,
+body {
+  font-family: "Segoe UI", Meiryo, sans-serif;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}

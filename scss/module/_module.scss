@@ -1,0 +1,57 @@
+/* module（共通アイテム） */
+/* --------------------------------- */
+/* title */
+.m-ttl {
+  margin-bottom: rem(30);
+  font-size: rem(32);
+  font-family: $en-fontFamily;
+  font-weight: 900;
+}
+
+/* btn */
+.m-btn {
+  display: block;
+  padding: rem(10) rem(48);
+  font-size: rem(12);
+  font-family: $en-fontFamily;
+  color: $btnFont-color;
+  background-color: $btnBg-color;
+}
+
+
+/* utility（便利スタイル） */
+/* --------------------------------- */
+// コンテンツラップ
+.u-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@include mq(full) {
+  .u-wrap {
+    padding: 0 rem(16);
+  }
+}
+
+// 英字フォント
+.u-txt--ec {
+  font-family: $en-fontFamily;
+  font-weight: bold;
+}
+
+// 日本語フォント
+.u-txt--jp {
+  font-family: -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    "Segoe UI",
+    "Helvetica Neue",
+    HelveticaNeue,
+    YuGothic,
+    "Yu Gothic Medium",
+    "Yu Gothic",
+    Verdana,
+    Meiryo,
+    sans-serif;
+  font-weight: bold;
+}

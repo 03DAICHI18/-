@@ -1,0 +1,65 @@
+//・・・・・・・ フォントカラー ・・・・・・・
+// 基本テキストカラー
+$baseFont-color: #333333;
+// 装飾フォントカラー
+$whiteFont-color: #fff;
+
+//・・・・・・・背景・・・・・・・
+$bg-color: #F0F0F0;
+$mask-color: rgba($color: #000000, $alpha: .34);
+
+//・・・・・・・ハンバーガーメニュー・・・・・・・
+// ハンバーガーアイコン
+$hamburgerIcon-color: #fff;
+// ハンバーガーアイコンテキスト
+$hamburgerFont-color: #fff;
+// ハンバーガーメニュー背景
+$hamburgerBg-color: rgba(#222222, .95);
+// オーバーレイ
+$overray-color: rgba(#222222, .6);
+
+//・・・・・・・フッター背景・・・・・・・
+$footer-color: #525252;
+
+// ・・・・・・・ボタンカラー・・・・・・・
+$btnFont-color: #fff;
+$btnBg-color: #000000;
+
+
+
+//・・・・・・・ フォントファミリー ・・・・・・・
+// ベーステキスト
+$fontFamily: 'Noto Sans JP',
+-apple-system,
+BlinkMacSystemFont,
+Roboto,
+"Segoe UI",
+"Helvetica Neue",
+HelveticaNeue,
+YuGothic,
+"Yu Gothic Medium",
+"Yu Gothic",
+Verdana,
+Meiryo,
+sans-serif;
+
+//  太字：セクションタイトルなど（WinではSegoe UI semiboldを適用。Yu Gothic Medium→Yu Gothic）
+$en-fontFamily: 'Montserrat',
+-apple-system,
+BlinkMacSystemFont,
+Roboto,
+"Segoe UI semibold",
+"Helvetica Neue",
+HelveticaNeue,
+YuGothic,
+"Yu Gothic",
+"Segoe UI",
+Verdana,
+Meiryo,
+sans-serif;
+
+//・・・・・・・ ベースフォントサイズ ・・・・・・・
+$baseFontsize: 16;
+
+//・・・・・・・ ブレイクポイント ・・・・・・・
+$mq-breakpoints: ('xs': 320px, 'sp': 480px, 'tab': 780px, 'pc' : 1025px, 'full': 1100px);

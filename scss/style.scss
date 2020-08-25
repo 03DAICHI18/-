@@ -1,0 +1,42 @@
+// setting：基本設定（変数などにまとめられるスタイル基本情報）
+@import "setting/setting";
+
+// base：ベース設定(サイト全体スタイル・リセットCSS)
+@import "base/base";
+
+// mixin：共通スタイル（別Block間で使いまわせるスタイルの部品化）
+@import "mixin/mixin";
+
+// module：モジュール（別Block間で使いまわせる共通スタイル  ※m-）
+@import "module/module";
+
+// section：各セクション（ブロック単位のセクションで区切る）
+@import "section/_header";
+@import "section/hero";
+@import "section/about";
+@import "section/works";
+@import "section/culture";
+@import "section/topics";
+@import "section/contact";
+@import "section/footer";
+
+
+
+
+//////////////////////////////////////////////////////
+///// ブロック名共通MEMO
+// header = "header" //サイトヘッダー
+// footer = "footer" //サイトフッター
+// nav = "gnav" //グローバルナビ
+// main = "main" //メインコンテンツ
+// header = "ch" //コンテンツッダー
+// footer = "cf" //コンテンツフッター
+// nav = "snav" //サイドナビ
+// nav = "fnav" //フッターナビ
+// section = "sec" //セクション
+
+///// エレメント名共通MEMO
+// title = "ttl" //タイトル
+// text = "txt" //テキスト
+// button = "btn" //ボタン
+// item = "item" //アイテム

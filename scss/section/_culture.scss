@@ -1,0 +1,11 @@
+@include mq(tab) {
+  .culture {
+    width: rem(520);
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .culture {
+    width: 100%;
+  }
+}

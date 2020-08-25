@@ -1,0 +1,108 @@
+#header {
+  transition: .5s;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: rem(120);
+
+  &__inner {
+    position: relative;
+    width: 70vw;
+    max-width: rem(1100);
+    height: calc(100vh - 100px);
+    background-image: url(../img/kv-img@2x.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $mask-color;
+    }
+  }
+}
+
+@include mq(tab) {
+  .hero {
+    margin-bottom: rem(70);
+  }
+
+  .hero__inner {
+    width: 70vw;
+  }
+}
+
+@include mq(sp) {
+  .hero__inner {
+    width: 80vw;
+  }
+}
+
+.hero__bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+  background-color: #222222;
+
+  .hero__txt-wrap {
+    color: $whiteFont-color;
+    z-index: 3;
+
+    .hero__txt {
+      line-height: 1.5;
+      font-size: rem(20);
+    }
+
+    .hero__ttl {
+      line-height: calc(86 / 72);
+      font-size: rem(72);
+      font-weight: 900;
+      font-family: $en-fontFamily;
+    }
+  }
+}
+
+@include mq(tab) {
+  .hero__bg {
+    width: 70%;
+
+    .hero__txt-wrap .hero__txt {
+      font-size: rem(16);
+    }
+
+    .hero__txt-wrap .hero__ttl {
+      line-height: calc(86 / 53);
+      font-size: rem(56);
+    }
+  }
+
+}
+
+@include mq(sp) {
+  .hero__bg {
+    width: 80%;
+    padding: 0 rem(10);
+
+    .hero__txt-wrap .hero__txt {
+      font-size: rem(16);
+    }
+
+    .hero__txt-wrap .hero__ttl {
+      font-size: rem(40);
+    }
+  }
+}

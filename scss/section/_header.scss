@@ -1,0 +1,198 @@
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: rem(30) rem(60);
+
+  &__logo {
+    width: rem(260);
+    height: rem(30);
+    margin-top: rem(-8);
+  }
+}
+
+@include mq(tab) {
+  .header-inner {
+    padding: rem(30) rem(30);
+  }
+
+  &__logo {
+    width: rem(190);
+    height: rem(21);
+  }
+}
+
+@include mq(sp) {
+  .header-inner {
+    padding: rem(15) rem(10);
+
+    &__logo {
+      width: rem(150);
+      height: rem(15);
+      margin-top: rem(-15);
+    }
+  }
+}
+
+/**************** 以下、ハンバーガーボタンのスタイリング ****************/
+.hamburger-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: rem(80);
+  height: rem(30);
+  color: $hamburgerIcon-color;
+  z-index: 30;
+}
+
+.btn {
+  /* ボタンの大きさ  */
+  width: rem(32);
+  height: rem(20);
+  /* バーガーの線をボタン範囲の中心に配置 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 最前面に */
+  z-index: 10;
+}
+
+/***** 真ん中のバーガー線 *****/
+.btn-line {
+  /* 線の長さと高さ */
+  width: 100%;
+  height: 2px;
+  /* バーガー線の色 */
+  background-color: $hamburgerIcon-color;
+  /* バーガー線の位置基準として設定 */
+  position: relative;
+  transition: .2s;
+}
+
+/***** 上下のバーガー線 *****/
+.btn-line::before,
+.btn-line::after {
+  content: "";
+  /* 基準線と同じ大きさと色 */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $hamburgerIcon-color;
+  transition: .5s;
+}
+
+
+.btn-line::before {
+  /* 上の線の位置 */
+  transform: translateY(-8px);
+}
+
+
+.btn-line::after {
+  /* 下の線の位置 */
+  transform: translateY(8px);
+}
+
+/***** メニューオープン時 *****/
+.btn-line.open {
+  /* 真ん中の線を透明に */
+  background-color: transparent;
+}
+
+.btn-line.open::before,
+.btn-line.open::after {
+  content: "";
+  /* 上下の線の色を変える */
+  background-color: $hamburgerIcon-color;
+  transition: .2s;
+}
+
+.btn-line.open::before {
+  /* 上の線を傾ける */
+  transform: rotate(45deg);
+}
+
+.btn-line.open::after {
+  /* 上の線を傾ける */
+  transform: rotate(-45deg);
+}
+
+/**************** 以下、メニューのスタイリング ****************/
+.menu {
+  position: fixed;
+  /* メニューの位置マイナス指定で画面外に */
+  right: -100%;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  color: $hamburgerFont-color;
+  background-color: $mask-color;
+  transition: .3s;
+  z-index: 20;
+
+  .menu-inner {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $hamburgerBg-color;
+
+    .menu-inner__wrap {
+      width: 100%;
+      height: rem(370);
+      /* メニューを縦に */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.menu-logo {
+  width: rem(43);
+  height: rem(43);
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.menu-list {
+  width: 100%;
+  height: 100%;
+  /* メニューテキスト位置をリスト内中心に */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $en-fontFamily;
+  font-weight: 900;
+}
+
+.menu-list:hover {
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: .3s;
+  cursor: pointer;
+}
+
+/***** メニューオープン時位置0にして画面内に *****/
+.menu.open {
+  position: absolute;
+  right: 0;
+}
+
+/**************** ここまで、メニューのスタイリング ****************/
