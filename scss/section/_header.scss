@@ -11,7 +11,7 @@
   justify-content: space-between;
   padding: rem(30) rem(60);
 
-  &__logo {
+  .header-inner__logo {
     width: rem(260);
     height: rem(30);
     margin-top: rem(-8);
@@ -23,7 +23,7 @@
     padding: rem(30) rem(30);
   }
 
-  &__logo {
+  .header-inner__logo {
     width: rem(190);
     height: rem(21);
   }
@@ -33,7 +33,7 @@
   .header-inner {
     padding: rem(15) rem(10);
 
-    &__logo {
+    .header-inner__logo {
       width: rem(150);
       height: rem(15);
       margin-top: rem(-15);
