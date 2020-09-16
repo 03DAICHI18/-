@@ -375,7 +375,7 @@ img {
   }
   .hero__bg .hero__txt-wrap .hero__ttl {
     font-size: 3.5rem;
-    line-height: calc(86 / 53);
+    line-height: 1.6;
   }
 }
 
